@@ -1,9 +1,15 @@
-import React from 'react';
-import './app.css';
-import Habit from './components/habit';
+import React from "react";
+import "./app.css";
+
+import SearchBar from "./components/searchBar";
+import VideoCard from "./components/VideoCard/videocard";
 
 function App() {
-  return <Habit/>;
+  return (
+    <>
+      <SearchBar />
+    </>
+  );
 }
 
 export default App;
