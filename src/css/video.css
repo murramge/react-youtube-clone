@@ -10,7 +10,9 @@
 }
 
 .video-name-context {
-  padding: 3.5rem 2rem 2rem 2rem;
+  padding: 0rem 2rem 2rem 2rem;
+  width: 100%;
+  margin-top: 10px;
 }
 .video-list {
   display: grid;
@@ -19,4 +21,15 @@
 .video-channel-name {
   color: gray;
   padding-top: 10px;
+}
+.video-detail-list {
+  display: grid;
+  float: right;
+  width: 40%;
+  height: auto;
+}
+.video-thumbnails {
+  width: 40%;
+  height: 100%;
+  margin: 0 auto;
 }

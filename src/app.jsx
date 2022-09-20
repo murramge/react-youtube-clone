@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import SearchBar from "./components/searchBar";
 import Videos from "./components/VideoCard/videos";
+import VideoDetail from "./components/VideoCard/videoDetail";
 import "./app.css";
 function App(props) {
   const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const selectVideo = (video) => {
+    setSelectedVideo(video);
+  };
 
   const search = (query) => {
     const requestOptions = {
@@ -40,11 +46,22 @@ function App(props) {
       })
       .catch((error) => console.log("error", error));
   }, []);
-  // console.log(videos);
+
   return (
     <>
-      <SearchBar Onsearch={search} />
-      <Videos videos={videos} />
+      <div>
+        <SearchBar Onsearch={search} />
+        <section>
+          <div>
+            {selectedVideo && (
+              <VideoDetail video={selectedVideo} videos={videos} />
+            )}
+          </div>
+          <div>
+            <Videos videos={videos} onVideoClick={selectVideo} />
+          </div>
+        </section>
+      </div>
     </>
   );
 }

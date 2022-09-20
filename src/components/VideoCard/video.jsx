@@ -3,10 +3,10 @@ import "../../css/video.css";
 
 class Video extends Component {
   render() {
-    const { video } = this.props;
+    const { video, onVideoClick } = this.props;
 
     return (
-      <li className="video">
+      <li className="video" onClick={() => onVideoClick(video)}>
         <img
           src={video.snippet.thumbnails.medium.url}
           className="video-thumbnails"
