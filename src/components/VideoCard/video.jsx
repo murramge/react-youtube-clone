@@ -4,7 +4,7 @@ import "../../css/video.css";
 class Video extends Component {
   render() {
     const { video } = this.props;
-    console.log(video);
+
     return (
       <li className="video">
         <img

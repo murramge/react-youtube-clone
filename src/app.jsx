@@ -4,6 +4,25 @@ import Videos from "./components/VideoCard/videos";
 import "./app.css";
 function App(props) {
   const [videos, setVideos] = useState([]);
+
+  const search = (query) => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResult=25&q=${query}&key=AIzaSyDayJ41-72DoM1-EFXhsVW9nYEvFYQwSbA`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((json) => json.items)
+      .then((items) => {
+        setVideos(items);
+      })
+
+      .catch((error) => console.log("error", error));
+  };
+
   useEffect(() => {
     const requestOptions = {
       method: "GET",
@@ -21,10 +40,10 @@ function App(props) {
       })
       .catch((error) => console.log("error", error));
   }, []);
-  console.log(videos);
+  // console.log(videos);
   return (
     <>
-      <SearchBar />
+      <SearchBar Onsearch={search} />
       <Videos videos={videos} />
     </>
   );
