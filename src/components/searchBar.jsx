@@ -6,7 +6,7 @@ class SearchBar extends Component {
     event.preventDefault();
     const name = this.inputRef.current.value;
     console.log(name);
-    this.inputRef.current.value = "";
+    // this.inputRef.current.value = "";
   };
   render() {
     return (
@@ -19,7 +19,7 @@ class SearchBar extends Component {
           className="search-youtube-logo"
         />
         <span className="search-youtube-name">Youtube</span>
-        <form className="search-form" onSubmit={this.onSubmit}>
+        <form action="#" className="search-form" onSubmit={this.onSubmit}>
           <input
             ref={this.inputRef}
             type="text"

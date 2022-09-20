@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+.video {
+  list-style: none;
+  padding: 0.5rem;
+  display: flex;
+  box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
+}
+
+.video-name-context {
+  padding: 3.5rem 2rem 2rem 2rem;
+}
+.video-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.video-channel-name {
+  color: gray;
+  padding-top: 10px;
+}
