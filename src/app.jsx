@@ -18,15 +18,14 @@ const App = (props) => {
     };
 
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResult=25&q=${query}&key=AIzaSyDayJ41-72DoM1-EFXhsVW9nYEvFYQwSbA`,
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResult=25&q=${query}&type=video&key=AIzaSyDayJ41-72DoM1-EFXhsVW9nYEvFYQwSbA`,
       requestOptions
     )
       .then((response) => response.json())
-      .then((json) => json.items)
-      .then((items) => {
-        setVideos(items);
-      })
-
+      .then((json) =>
+        json.items.map((item) => ({ ...item, id: item.id.videoId }))
+      )
+      .then((items) => setVideos(items))
       .catch((error) => console.log("error", error));
   };
 

@@ -1,14 +1,19 @@
 import React from "react";
+import { useRef } from "react";
 import styles from "./search_header.module.css";
 
 const SearchBar = (props) => {
-  const inputRef = React.createRef();
+  const inputRef = useRef();
 
   const handleSearch = () => {
     const { Onsearch } = props;
     const name = inputRef.current.value;
     Onsearch(name);
-    console.log(name);
+  };
+  const onkeypress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
 
   const onClick = () => {
@@ -33,6 +38,7 @@ const SearchBar = (props) => {
         type="search"
         className={styles.input}
         placeholder="Search.."
+        onKeyPress={onkeypress}
       />
       <button type="submit" className={styles.button} onClick={onClick}>
         <img

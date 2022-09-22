@@ -10,7 +10,7 @@ const VideoDetail = (props) => {
         type="text/html"
         width="720"
         height="405"
-        src={`https://www.youtube.com/embed/${video.id.videoId || video.id}  `}
+        src={`https://www.youtube.com/embed/${video.id}  `}
         frameborder="0"
         allowfullscreen
       ></iframe>
