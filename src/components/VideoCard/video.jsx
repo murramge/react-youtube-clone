@@ -1,26 +1,24 @@
-import React, { Component } from "react";
-import "../../css/video.css";
+import React from "react";
+import styles from "./video_item.module.css";
 
-class Video extends Component {
-  render() {
-    const { video, onVideoClick } = this.props;
+const Video = (props) => {
+  const { video, onVideoClick } = props;
 
-    return (
-      <li className="video" onClick={() => onVideoClick(video)}>
+  return (
+    <li className={styles.container} onClick={() => onVideoClick(video)}>
+      <div className={styles.video}>
         <img
           src={video.snippet.thumbnails.medium.url}
-          className="video-thumbnails"
-          alt=""
+          className={styles.thumbnail}
+          alt="video thumbnail"
         ></img>
-        <div className="video-name-context">
-          <span className="video-name">{video.snippet.title}</span>
-          <div className="video-channel-name">
-            <span>{video.snippet.channelTitle}</span>
-          </div>
+        <div className={styles.metadata}>
+          <p className={styles.title}>{video.snippet.title}</p>
+          <p className={styles.channel}>{video.snippet.channelTitle}</p>
         </div>
-      </li>
-    );
-  }
-}
+      </div>
+    </li>
+  );
+};
 
 export default Video;

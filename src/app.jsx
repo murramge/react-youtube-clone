@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "./components/searchBar";
 import Videos from "./components/VideoCard/videos";
 import VideoDetail from "./components/VideoCard/videoDetail";
 import "./app.css";
-function App(props) {
+const App = (props) => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
@@ -16,6 +16,7 @@ function App(props) {
       method: "GET",
       redirect: "follow",
     };
+
     fetch(
       `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResult=25&q=${query}&key=AIzaSyDayJ41-72DoM1-EFXhsVW9nYEvFYQwSbA`,
       requestOptions
@@ -64,6 +65,6 @@ function App(props) {
       </div>
     </>
   );
-}
+};
 
 export default App;
