@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./search_header.module.css";
 
 const SearchBar = (props) => {
   const inputRef = React.createRef();
@@ -15,33 +16,34 @@ const SearchBar = (props) => {
   };
 
   return (
-    <nav className="searchbar">
-      <img
-        src="/images/logo.png"
-        width={35}
-        height={35}
-        alt="."
-        className="search-youtube-logo"
-      />
-      <span className="search-youtube-name">Youtube</span>
-      <div className="search-form">
-        <input
-          ref={inputRef}
-          type="text"
-          className="search-input"
-          placeholder="Search.."
+    <header className={styles.header}>
+      <div className={styles.logo}>
+        <img
+          src="/images/logo.png"
+          width={35}
+          height={35}
+          alt="."
+          className={styles.img}
         />
-        <button className="search-button" onClick={onClick}>
-          <img
-            src="/images/search.png"
-            width={20}
-            height={20}
-            alt="."
-            className="search-button-logo"
-          />
-        </button>
+        <h1 className={styles.title}>Youtube</h1>
       </div>
-    </nav>
+
+      <input
+        ref={inputRef}
+        type="search"
+        className={styles.input}
+        placeholder="Search.."
+      />
+      <button type="submit" className={styles.button} onClick={onClick}>
+        <img
+          src="/images/search.png"
+          width={20}
+          height={20}
+          alt="."
+          className={styles.buttonImg}
+        />
+      </button>
+    </header>
   );
 };
 

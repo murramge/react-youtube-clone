@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "./components/searchBar";
 import Videos from "./components/VideoCard/videos";
 import VideoDetail from "./components/VideoCard/videoDetail";
-import "./app.css";
+import styles from "./app.module.css";
 const App = (props) => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -50,7 +50,7 @@ const App = (props) => {
 
   return (
     <>
-      <div>
+      <div className={styles.app}>
         <SearchBar Onsearch={search} />
         <section>
           <div>
