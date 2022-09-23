@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { useRef } from "react";
 import styles from "./search_header.module.css";
 
-const SearchBar = (props) => {
+const SearchBar = memo((props) => {
   const inputRef = useRef();
-
+  console.log("yy");
   const handleSearch = () => {
     const { Onsearch } = props;
     const name = inputRef.current.value;
@@ -51,6 +51,6 @@ const SearchBar = (props) => {
       </button>
     </header>
   );
-};
+});
 
 export default SearchBar;
