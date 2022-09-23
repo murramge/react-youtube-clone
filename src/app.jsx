@@ -23,14 +23,18 @@ const App = ({ youtube }) => {
     <>
       <div className={styles.app}>
         <SearchBar Onsearch={search} />
-        <section>
-          <div>
-            {selectedVideo && (
+        <section className={styles.content}>
+          {selectedVideo && (
+            <div className={styles.detail}>
               <VideoDetail video={selectedVideo} videos={videos} />
-            )}
-          </div>
-          <div>
-            <Videos videos={videos} onVideoClick={selectVideo} />
+            </div>
+          )}
+          <div className={styles.list}>
+            <Videos
+              videos={videos}
+              onVideoClick={selectVideo}
+              display={selectedVideo ? "list" : "grid"}
+            />
           </div>
         </section>
       </div>
